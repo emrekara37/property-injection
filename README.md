@@ -7,7 +7,7 @@ This package allows you to do so simply
 ## Usage
 
 Install package from nuget
-
+https://www.nuget.org/packages/DotnetPropertyInjection.Lib/1.0.0
 
 Add this extension method to your Program.cs
 ![image](https://user-images.githubusercontent.com/17519791/179227460-f6c9d5c9-b6b4-46f4-a4ab-8e9ca3f83915.png)
