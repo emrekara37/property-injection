@@ -4,6 +4,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://github.com/emrekara37/property-injection</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/emrekara37/property-injection</RepositoryUrl>
+        <Authors>Emre KARA</Authors>
+        <Description>Dotnet core property injection library</Description>
+        <Copyright />
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
