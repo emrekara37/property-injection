@@ -8,10 +8,25 @@ public static class ServiceExtensions
 {
     public static IServiceCollection AddPropertyInjection(this IServiceCollection services)
     {
-        var copy = services.ToList();
-        foreach (var service in copy)
+        var filteredServiceDescriptors = services
+            .Where(service => service.ImplementationType is not null)
+            .ToList();
+        return AddPropertyInjection(services, filteredServiceDescriptors);
+    }
+    public static IServiceCollection AddPropertyInjection(this IServiceCollection services,
+        params Type[] assemblyMarkerTypes)
+    {
+        var filteredServiceDescriptors = services
+            .Where(service => service.ImplementationType is not null &&
+                              assemblyMarkerTypes.Any(c => c.Assembly == service.ImplementationType.Assembly))
+            .ToList();
+        return AddPropertyInjection(services, filteredServiceDescriptors);
+    }
+    private static IServiceCollection AddPropertyInjection(IServiceCollection services,
+        List<ServiceDescriptor> serviceDescriptors)
+    {
+        foreach (var service in serviceDescriptors)
         {
-            if (service.ImplementationType is null) continue;
             var properties = service.ImplementationType.GetProperties();
             var dict = new Dictionary<string, Type>();
             foreach (var property in properties)
@@ -34,12 +49,14 @@ public static class ServiceExtensions
                         parameters.Add(provider.GetService(constructorParameter.ParameterType));
                     }
 
-                    var instance = ActivatorUtilities.CreateInstance(provider, service.ImplementationType, parameters.ToArray()!);
+                    var instance =
+                        ActivatorUtilities.CreateInstance(provider, service.ImplementationType, parameters.ToArray()!);
 
                     foreach (var (name, type) in dict)
                     {
                         instance.GetType().GetProperty(name)?.SetValue(instance, provider.GetService(type), null);
                     }
+
                     return instance;
                 }, service.Lifetime));
             }
