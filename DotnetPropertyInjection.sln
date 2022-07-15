@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{537540D0-0C64-4EF4-91F8-3E27A1144678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetPropertyInjection.Lib", "src\DotnetPropertyInjection.Lib\DotnetPropertyInjection.Lib.csproj", "{ACE955AC-873A-4972-9802-4BC8A83AC9FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACE955AC-873A-4972-9802-4BC8A83AC9FD} = {537540D0-0C64-4EF4-91F8-3E27A1144678}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACE955AC-873A-4972-9802-4BC8A83AC9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE955AC-873A-4972-9802-4BC8A83AC9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE955AC-873A-4972-9802-4BC8A83AC9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE955AC-873A-4972-9802-4BC8A83AC9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
